@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- TODO: 随官方 GA 版本更新 -->
+        <version>3.4.0</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.javaai</groupId>
+    <artifactId>saa-quickstart</artifactId>
+    <version>0.1.0</version>
+    <name>saa-quickstart</name>
+    <description>Spring AI Alibaba 最小可跑示例 - Java AI 实战派 篇2</description>
+
+    <properties>
+        <java.version>21</java.version>
+        <!-- TODO: SAA 1.0 GA 版本号以官方仓库为准 -->
+        <spring-ai-alibaba.version>1.0.0</spring-ai-alibaba.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- SAA：兼容 Spring AI API，深度集成百炼 / Nacos / Higress -->
+        <dependency>
+            <groupId>com.alibaba.cloud.ai</groupId>
+            <artifactId>spring-ai-alibaba-starter-dashscope</artifactId>
+            <version>${spring-ai-alibaba.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
