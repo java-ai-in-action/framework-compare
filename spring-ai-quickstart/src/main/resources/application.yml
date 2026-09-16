@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-ai-quickstart
+  ai:
+    openai:
+      # OpenAI 协议通用：DeepSeek 改 https://api.deepseek.com，通义改 https://dashscope.aliyuncs.com/compatible-mode/v1
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+      api-key: ${OPENAI_API_KEY:sk-demo}
+      chat:
+        options:
+          model: ${CHAT_MODEL:gpt-4o-mini}
+          temperature: 0.7
+
+logging:
+  level:
+    org.springframework.ai: INFO
