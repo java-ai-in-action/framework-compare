@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+langchain4j:
+  open-ai:
+    chat-model:
+      # OpenAI 协议通用：DeepSeek / 通义 compatible-mode 均可
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
+      api-key: ${OPENAI_API_KEY:sk-demo}
+      model-name: ${CHAT_MODEL:gpt-4o-mini}
+      temperature: 0.7
+      log-requests: true
+      log-responses: true
+
+logging:
+  level:
+    dev.langchain4j: INFO
