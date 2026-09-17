@@ -14,9 +14,9 @@
 
     <groupId>com.javaai</groupId>
     <artifactId>spring-ai-quickstart</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <name>spring-ai-quickstart</name>
-    <description>Spring AI 最小可跑示例 - Java AI 实战派 篇2</description>
+    <description>Spring AI 最小可跑示例（Step 1-5）- Java AI 实战派 篇3</description>
 
     <properties>
         <java.version>21</java.version>
@@ -41,11 +41,25 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- OpenAI 协议通用 starter：DeepSeek / 通义 / 豆包 均兼容，改 base-url 即可切换 -->
+
+        <!-- Step 1 / 2 / 3 / 5：OpenAI 协议通用 starter -->
         <dependency>
             <groupId>org.springframework.ai</groupId>
             <artifactId>spring-ai-starter-model-openai</artifactId>
         </dependency>
+
+        <!-- 流式输出（SSE）需要 Reactor -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <!-- Step 4：MCP Client（默认注释，需要时取消注释）
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-mcp-client</artifactId>
+        </dependency>
+        -->
     </dependencies>
 
     <build>
