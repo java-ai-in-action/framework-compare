@@ -8,12 +8,24 @@
 
 ```
 framework-compare/
-├── spring-ai-quickstart/       # Spring AI 2.0 最小可跑（ChatClient + ChatMemory + Tool）
-├── langchain4j-quickstart/     # LangChain4j 1.20 最小可跑（AiService + @Tool）
-├── saa-quickstart/             # Spring AI Alibaba 1.0 最小可跑（含 Nacos MCP Registry 接入点）
+├── spring-ai-quickstart/       # Spring AI 2.0：Step 1-5 完整实现（10 行 Demo → 记忆 → 工具 → MCP → SSE）
+├── langchain4j-quickstart/     # LangChain4j 1.20 最小可跑（AiService + @V 模板变量）
+├── saa-quickstart/             # Spring AI Alibaba 1.0 最小可跑（百炼 starter）
 ├── benchmarks/                 # 6 维度实测脚本（模型集成/向量库/MCP/Agent/可观测/社区）
 └── docker-compose.yml          # 一键起 pgvector + Qdrant + Redis 8
 ```
+
+## 📄 spring-ai-quickstart 的 Step 对照（配套篇3）
+
+| Step | 能力 | 文件 |
+|---|---|---|
+| 1 | 最小可跑 ChatClient | `DemoApplication.java` |
+| 2 | ChatMemory 多轮对话 | `config/ChatConfig.java` |
+| 3 | Function Calling | `tools/OrderTools.java` |
+| 4 | MCP Client | `application.yml`（注释段） |
+| 5 | 流式输出 SSE | `controller/AdvancedController.java` |
+
+细节见 [`spring-ai-quickstart/README.md`](./spring-ai-quickstart/README.md)。
 
 ## 🚀 快速开始
 
@@ -27,9 +39,9 @@ docker-compose up -d
 ### 1. 配置模型 API Key（任选其一）
 
 ```bash
-export SPRING_AI_OPENAI_API_KEY=sk-xxx        # OpenAI 协议兼容（DeepSeek/通义均可）
-export DEEPSEEK_API_KEY=sk-xxx                # DeepSeek
-export DASHSCOPE_API_KEY=sk-xxx               # 阿里云百炼
+export OPENAI_API_KEY=sk-xxx        # OpenAI 协议兼容（DeepSeek/通义均可）
+export DEEPSEEK_API_KEY=sk-xxx      # DeepSeek
+export DASHSCOPE_API_KEY=sk-xxx     # 阿里云百炼
 ```
 
 ### 2. 跑 Spring AI 2.0
@@ -38,7 +50,8 @@ export DASHSCOPE_API_KEY=sk-xxx               # 阿里云百炼
 cd spring-ai-quickstart
 mvn spring-boot:run
 curl "http://localhost:8080/chat?q=用一句话介绍Spring AI"
-curl "http://localhost:8080/chat/memory?q=我叫老板"   # 多轮记忆
+curl "http://localhost:8080/api/chat/tools?q=订单A12345到哪了"    # Function Calling
+curl -N "http://localhost:8080/api/chat/stream?q=写一首关于咖啡的四行诗"  # SSE
 ```
 
 ### 3. 跑 LangChain4j 1.20
@@ -80,9 +93,9 @@ curl "http://localhost:8082/chat?q=用一句话介绍SAA"
 
 ## 🗺️ Roadmap
 
-- [ ] v0.1 三框架 hello world + docker-compose（当前）
-- [ ] v0.2 RAG 对比（同文档、同问题、三框架召回效果）
-- [ ] v0.3 Function Calling / MCP 对比
+- [x] v0.1 三框架 hello world + docker-compose
+- [x] v0.2 spring-ai-quickstart 补齐 Step 2-5（记忆/工具/SSE）
+- [ ] v0.3 RAG 对比（同文档、同问题、三框架召回效果）
 - [ ] v0.4 多 Agent 编排对比
 - [ ] v1.0 基准测试报告（压测 + Token 成本）
 
