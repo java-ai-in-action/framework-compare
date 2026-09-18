@@ -1,0 +1,916 @@
+{
+  "meta": {
+    "name": "RAG 评估集 v1（电商客服场景）",
+    "size": 100,
+    "categories": {
+      "factual": 40,
+      "rule": 30,
+      "multi_hop": 20,
+      "no_answer": 10
+    },
+    "metric": "HitRate@K（检索结果 doc_id 与 expected_doc_ids 有交集即命中）",
+    "note": "无答案题用于评估幻觉率，命中率统计时排除"
+  },
+  "cases": [
+    {
+      "id": "F001",
+      "category": "factual",
+      "question": "无理由退货的有效期是几天",
+      "expected_doc_ids": [
+        "doc-001"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F002",
+      "category": "factual",
+      "question": "哪些商品不适用无理由退货",
+      "expected_doc_ids": [
+        "doc-001"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F003",
+      "category": "factual",
+      "question": "七天无理由退货从什么时候开始算",
+      "expected_doc_ids": [
+        "doc-002"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F004",
+      "category": "factual",
+      "question": "168 小时是几天",
+      "expected_doc_ids": [
+        "doc-002"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F005",
+      "category": "factual",
+      "question": "质量问题退货运费谁承担",
+      "expected_doc_ids": [
+        "doc-003"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F006",
+      "category": "factual",
+      "question": "运费险最高能抵多少",
+      "expected_doc_ids": [
+        "doc-003"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F007",
+      "category": "factual",
+      "question": "银行卡退款多久到账",
+      "expected_doc_ids": [
+        "doc-004"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F008",
+      "category": "factual",
+      "question": "退款审核通过后多久能到账",
+      "expected_doc_ids": [
+        "doc-004"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F009",
+      "category": "factual",
+      "question": "换货的流程是怎样的",
+      "expected_doc_ids": [
+        "doc-005"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F010",
+      "category": "factual",
+      "question": "换货需要先做什么",
+      "expected_doc_ids": [
+        "doc-005"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F011",
+      "category": "factual",
+      "question": "换货对商品状态有什么要求",
+      "expected_doc_ids": [
+        "doc-006"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F012",
+      "category": "factual",
+      "question": "同一订单最多换货几次",
+      "expected_doc_ids": [
+        "doc-006"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F013",
+      "category": "factual",
+      "question": "现货商品多久发货",
+      "expected_doc_ids": [
+        "doc-007"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F014",
+      "category": "factual",
+      "question": "大促期间发货会延迟吗",
+      "expected_doc_ids": [
+        "doc-007"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F015",
+      "category": "factual",
+      "question": "怎么查物流轨迹",
+      "expected_doc_ids": [
+        "doc-008"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F016",
+      "category": "factual",
+      "question": "物流单号在哪里看",
+      "expected_doc_ids": [
+        "doc-008"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F017",
+      "category": "factual",
+      "question": "哪些地区不支持配送",
+      "expected_doc_ids": [
+        "doc-009"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F018",
+      "category": "factual",
+      "question": "偏远地区需要补运费吗",
+      "expected_doc_ids": [
+        "doc-009"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F019",
+      "category": "factual",
+      "question": "支持哪些支付方式",
+      "expected_doc_ids": [
+        "doc-010"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F020",
+      "category": "factual",
+      "question": "企业用户怎么付款",
+      "expected_doc_ids": [
+        "doc-010"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F021",
+      "category": "factual",
+      "question": "支付失败怎么办",
+      "expected_doc_ids": [
+        "doc-011"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F022",
+      "category": "factual",
+      "question": "支付失败订单多久取消",
+      "expected_doc_ids": [
+        "doc-011"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F023",
+      "category": "factual",
+      "question": "花呗分期支持几期",
+      "expected_doc_ids": [
+        "doc-012"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F024",
+      "category": "factual",
+      "question": "分期手续费率是多少",
+      "expected_doc_ids": [
+        "doc-012"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F025",
+      "category": "factual",
+      "question": "订单完成后还能补开发票吗",
+      "expected_doc_ids": [
+        "doc-013"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F026",
+      "category": "factual",
+      "question": "支持开哪种发票",
+      "expected_doc_ids": [
+        "doc-013"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F027",
+      "category": "factual",
+      "question": "电子发票多久能收到",
+      "expected_doc_ids": [
+        "doc-014"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F028",
+      "category": "factual",
+      "question": "电子发票可以重新下载吗",
+      "expected_doc_ids": [
+        "doc-014"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F029",
+      "category": "factual",
+      "question": "会员等级怎么划分",
+      "expected_doc_ids": [
+        "doc-015"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F030",
+      "category": "factual",
+      "question": "V5 会员需要消费多少",
+      "expected_doc_ids": [
+        "doc-015"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F031",
+      "category": "factual",
+      "question": "V3 会员有什么权益",
+      "expected_doc_ids": [
+        "doc-016"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F032",
+      "category": "factual",
+      "question": "V4 会员有哪些额外福利",
+      "expected_doc_ids": [
+        "doc-016"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F033",
+      "category": "factual",
+      "question": "积分怎么抵扣",
+      "expected_doc_ids": [
+        "doc-017"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F034",
+      "category": "factual",
+      "question": "单笔订单最多抵扣多少",
+      "expected_doc_ids": [
+        "doc-017"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F035",
+      "category": "factual",
+      "question": "一笔订单能用几张优惠券",
+      "expected_doc_ids": [
+        "doc-018"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F036",
+      "category": "factual",
+      "question": "优惠券使用有什么条件",
+      "expected_doc_ids": [
+        "doc-018"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F037",
+      "category": "factual",
+      "question": "平台券和店铺券能叠加吗",
+      "expected_doc_ids": [
+        "doc-019"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F038",
+      "category": "factual",
+      "question": "叠加后优惠有上限吗",
+      "expected_doc_ids": [
+        "doc-019"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F039",
+      "category": "factual",
+      "question": "秒杀商品限购几件",
+      "expected_doc_ids": [
+        "doc-020"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "F040",
+      "category": "factual",
+      "question": "秒杀未支付会怎样",
+      "expected_doc_ids": [
+        "doc-020"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R001",
+      "category": "rule",
+      "question": "无理由退货需要满足什么条件",
+      "expected_doc_ids": [
+        "doc-001"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R002",
+      "category": "rule",
+      "question": "什么情况下退货运费由平台出",
+      "expected_doc_ids": [
+        "doc-003"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R003",
+      "category": "rule",
+      "question": "换货要满足哪些条件",
+      "expected_doc_ids": [
+        "doc-006"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R004",
+      "category": "rule",
+      "question": "分期免息的条件是什么",
+      "expected_doc_ids": [
+        "doc-012"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R005",
+      "category": "rule",
+      "question": "V3 会员需要满足什么消费金额",
+      "expected_doc_ids": [
+        "doc-015"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R006",
+      "category": "rule",
+      "question": "优惠券在什么条件下才能使用",
+      "expected_doc_ids": [
+        "doc-018"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R007",
+      "category": "rule",
+      "question": "优惠券叠加有什么限制",
+      "expected_doc_ids": [
+        "doc-019"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R008",
+      "category": "rule",
+      "question": "限时活动有什么限购规则",
+      "expected_doc_ids": [
+        "doc-020"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R009",
+      "category": "rule",
+      "question": "保修的范围包括哪些情况",
+      "expected_doc_ids": [
+        "doc-021"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R010",
+      "category": "rule",
+      "question": "延保覆盖什么内容",
+      "expected_doc_ids": [
+        "doc-022"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R011",
+      "category": "rule",
+      "question": "质量问题的退货有什么时限要求",
+      "expected_doc_ids": [
+        "doc-024"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R012",
+      "category": "rule",
+      "question": "假一赔十的赔付规则是什么",
+      "expected_doc_ids": [
+        "doc-025"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R013",
+      "category": "rule",
+      "question": "复杂投诉的处理时限是多少",
+      "expected_doc_ids": [
+        "doc-027"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R014",
+      "category": "rule",
+      "question": "账号在什么情况下会被冻结",
+      "expected_doc_ids": [
+        "doc-028"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R015",
+      "category": "rule",
+      "question": "平台收集用户信息用于什么",
+      "expected_doc_ids": [
+        "doc-029"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R016",
+      "category": "rule",
+      "question": "价格保护排除了哪些情形",
+      "expected_doc_ids": [
+        "doc-030"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R017",
+      "category": "rule",
+      "question": "七天无理由的起算时间是什么",
+      "expected_doc_ids": [
+        "doc-002"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R018",
+      "category": "rule",
+      "question": "不同支付方式的退款到账时间有何区别",
+      "expected_doc_ids": [
+        "doc-004"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R019",
+      "category": "rule",
+      "question": "预售商品的发货时间怎么确定",
+      "expected_doc_ids": [
+        "doc-007"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R020",
+      "category": "rule",
+      "question": "怎么查询物流轨迹",
+      "expected_doc_ids": [
+        "doc-008"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R021",
+      "category": "rule",
+      "question": "哪些地区属于不支持配送范围",
+      "expected_doc_ids": [
+        "doc-009"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R022",
+      "category": "rule",
+      "question": "支付失败后订单会怎样处理",
+      "expected_doc_ids": [
+        "doc-011"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R023",
+      "category": "rule",
+      "question": "发票补开的时间限制是多久",
+      "expected_doc_ids": [
+        "doc-013"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R024",
+      "category": "rule",
+      "question": "电子发票如何获取和重新下载",
+      "expected_doc_ids": [
+        "doc-014"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R025",
+      "category": "rule",
+      "question": "V4 会员享有哪些额外权益",
+      "expected_doc_ids": [
+        "doc-016"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R026",
+      "category": "rule",
+      "question": "积分抵扣的比例和上限是多少",
+      "expected_doc_ids": [
+        "doc-017"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R027",
+      "category": "rule",
+      "question": "上门维修的费用如何计算",
+      "expected_doc_ids": [
+        "doc-023"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R028",
+      "category": "rule",
+      "question": "投诉可以通过哪些渠道提交",
+      "expected_doc_ids": [
+        "doc-026"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R029",
+      "category": "rule",
+      "question": "平台收集用户信息用于什么目的",
+      "expected_doc_ids": [
+        "doc-029"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "R030",
+      "category": "rule",
+      "question": "哪些情况会导致账号被冻结",
+      "expected_doc_ids": [
+        "doc-028"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M001",
+      "category": "multi_hop",
+      "question": "会员免运费退货 + 退货运费规则有哪些",
+      "expected_doc_ids": [
+        "doc-016",
+        "doc-003"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M002",
+      "category": "multi_hop",
+      "question": "退款到账时间与支付方式有什么关系",
+      "expected_doc_ids": [
+        "doc-004",
+        "doc-010"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M003",
+      "category": "multi_hop",
+      "question": "优惠券能用在秒杀活动商品上吗",
+      "expected_doc_ids": [
+        "doc-018",
+        "doc-020"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M004",
+      "category": "multi_hop",
+      "question": "换货和退货在时限上有什么区别",
+      "expected_doc_ids": [
+        "doc-005",
+        "doc-001"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M005",
+      "category": "multi_hop",
+      "question": "延长保修和上门维修服务有什么区别",
+      "expected_doc_ids": [
+        "doc-022",
+        "doc-023"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M006",
+      "category": "multi_hop",
+      "question": "发票申请时间和退款到账时间分别是多久",
+      "expected_doc_ids": [
+        "doc-013",
+        "doc-004"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M007",
+      "category": "multi_hop",
+      "question": "会员等级会影响投诉处理吗",
+      "expected_doc_ids": [
+        "doc-015",
+        "doc-026"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M008",
+      "category": "multi_hop",
+      "question": "积分抵扣和优惠券能同时使用吗",
+      "expected_doc_ids": [
+        "doc-017",
+        "doc-018"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M009",
+      "category": "multi_hop",
+      "question": "质量问题和假货的赔偿标准有什么不同",
+      "expected_doc_ids": [
+        "doc-024",
+        "doc-025"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M010",
+      "category": "multi_hop",
+      "question": "价格保护和退货的时限各是多少天",
+      "expected_doc_ids": [
+        "doc-030",
+        "doc-001"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M011",
+      "category": "multi_hop",
+      "question": "分期付款和发票开具有什么关系",
+      "expected_doc_ids": [
+        "doc-012",
+        "doc-013"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M012",
+      "category": "multi_hop",
+      "question": "偏远地区配送和运费如何计算",
+      "expected_doc_ids": [
+        "doc-009",
+        "doc-003"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M013",
+      "category": "multi_hop",
+      "question": "账号安全与隐私政策分别保护什么",
+      "expected_doc_ids": [
+        "doc-028",
+        "doc-029"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M014",
+      "category": "multi_hop",
+      "question": "发货时效和物流查询的关系",
+      "expected_doc_ids": [
+        "doc-007",
+        "doc-008"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M015",
+      "category": "multi_hop",
+      "question": "支付失败后订单状态与库存会怎样",
+      "expected_doc_ids": [
+        "doc-011",
+        "doc-020"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M016",
+      "category": "multi_hop",
+      "question": "会员权益中的专属客服和投诉渠道有何不同",
+      "expected_doc_ids": [
+        "doc-016",
+        "doc-026"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M017",
+      "category": "multi_hop",
+      "question": "退货商品完好性要求与质量问题判定标准",
+      "expected_doc_ids": [
+        "doc-001",
+        "doc-024"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M018",
+      "category": "multi_hop",
+      "question": "优惠券叠加上限和积分抵扣上限分别是多少",
+      "expected_doc_ids": [
+        "doc-019",
+        "doc-017"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M019",
+      "category": "multi_hop",
+      "question": "延保购买时间和保修期的关系",
+      "expected_doc_ids": [
+        "doc-022",
+        "doc-021"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "M020",
+      "category": "multi_hop",
+      "question": "投诉响应时限与处理时限分别是多久",
+      "expected_doc_ids": [
+        "doc-026",
+        "doc-027"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "N001",
+      "category": "no_answer",
+      "question": "你们公司的 CEO 是谁",
+      "expected_doc_ids": [],
+      "answerable": false
+    },
+    {
+      "id": "N002",
+      "category": "no_answer",
+      "question": "明天的天气怎么样",
+      "expected_doc_ids": [],
+      "answerable": false
+    },
+    {
+      "id": "N003",
+      "category": "no_answer",
+      "question": "帮我写一段 Java 快速排序代码",
+      "expected_doc_ids": [],
+      "answerable": false
+    },
+    {
+      "id": "N004",
+      "category": "no_answer",
+      "question": "这款商品在竞争对手那里卖多少钱",
+      "expected_doc_ids": [],
+      "answerable": false
+    },
+    {
+      "id": "N005",
+      "category": "no_answer",
+      "question": "我可以用比特币付款吗",
+      "expected_doc_ids": [],
+      "answerable": false
+    },
+    {
+      "id": "N006",
+      "category": "no_answer",
+      "question": "你们的服务器部署在哪个机房",
+      "expected_doc_ids": [],
+      "answerable": false
+    },
+    {
+      "id": "N007",
+      "category": "no_answer",
+      "question": "下周有什么新品发布",
+      "expected_doc_ids": [],
+      "answerable": false
+    },
+    {
+      "id": "N008",
+      "category": "no_answer",
+      "question": "能不能给我员工内部折扣价",
+      "expected_doc_ids": [],
+      "answerable": false
+    },
+    {
+      "id": "N009",
+      "category": "no_answer",
+      "question": "帮我推荐一部电影",
+      "expected_doc_ids": [],
+      "answerable": false
+    },
+    {
+      "id": "N010",
+      "category": "no_answer",
+      "question": "这台电脑能挖矿吗",
+      "expected_doc_ids": [],
+      "answerable": false
+    }
+  ]
+}
